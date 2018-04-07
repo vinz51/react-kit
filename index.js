@@ -1,10 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import Loadable from 'react-loadable'
+import 'Styles/reset'
 
-import App from 'Containers/App'
+const App = Loadable({
+    loader : () => import('Containers/App'),
+    loading: () => (<div>loading ... </div>),
+});
 
 ReactDOM.render(
     <App name="World" />,
     document.getElementById('root')
 )
-
